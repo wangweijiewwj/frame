@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fintech.rabbitmq.mapper.OperateActionInsMapper">
+  <resultMap id="BaseResultMap" type="com.fintech.rabbitmq.entity.OperateActionIns">
+    <!--@mbg.generated-->
+    <!--@Table t_o_operate_action_ins-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="msg_id" jdbcType="INTEGER" property="msgId" />
+    <result column="op_id" jdbcType="INTEGER" property="opId" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="data_id" jdbcType="VARCHAR" property="dataId" />
+    <result column="output" jdbcType="VARCHAR" property="output" />
+    <result column="clazz" jdbcType="VARCHAR" property="clazz" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="process_id" jdbcType="INTEGER" property="processId" />
+    <result column="desc" jdbcType="VARCHAR" property="desc" />
+    <result column="process_time" jdbcType="BIGINT" property="processTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, msg_id, op_id, code, data_id, `output`, clazz, flag, sort, product_id, `status`,
+    process_id, `desc`, process_time
+  </sql>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.fintech.rabbitmq.entity.OperateActionIns" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_o_operate_action_ins
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="msgId != null">
+        msg_id,
+      </if>
+      <if test="opId != null">
+        op_id,
+      </if>
+      <if test="code != null and code != ''">
+        code,
+      </if>
+      <if test="dataId != null and dataId != ''">
+        data_id,
+      </if>
+      <if test="output != null and output != ''">
+        `output`,
+      </if>
+      <if test="clazz != null and clazz != ''">
+        clazz,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="productId != null">
+        product_id,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="processId != null">
+        process_id,
+      </if>
+      <if test="desc != null and desc != ''">
+        `desc`,
+      </if>
+      <if test="processTime != null">
+        process_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="msgId != null">
+        #{msgId,jdbcType=INTEGER},
+      </if>
+      <if test="opId != null">
+        #{opId,jdbcType=INTEGER},
+      </if>
+      <if test="code != null and code != ''">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="dataId != null and dataId != ''">
+        #{dataId,jdbcType=VARCHAR},
+      </if>
+      <if test="output != null and output != ''">
+        #{output,jdbcType=VARCHAR},
+      </if>
+      <if test="clazz != null and clazz != ''">
+        #{clazz,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="processId != null">
+        #{processId,jdbcType=INTEGER},
+      </if>
+      <if test="desc != null and desc != ''">
+        #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="processTime != null">
+        #{processTime,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

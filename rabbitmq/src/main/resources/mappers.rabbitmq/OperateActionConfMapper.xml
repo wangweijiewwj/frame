@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fintech.rabbitmq.mapper.OperateActionConfMapper">
+    <resultMap id="BaseResultMap" type="com.fintech.rabbitmq.entity.OperateActionConf">
+        <!--@mbg.generated-->
+        <!--@Table t_o_operate_action_conf-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="op_id" jdbcType="INTEGER" property="opId"/>
+        <result column="code" jdbcType="VARCHAR" property="code"/>
+        <result column="clazz" jdbcType="VARCHAR" property="clazz"/>
+        <result column="flag" jdbcType="INTEGER" property="flag"/>
+        <result column="sort" jdbcType="INTEGER" property="sort"/>
+        <result column="product_id" jdbcType="INTEGER" property="productId"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="desc" jdbcType="VARCHAR" property="desc"/>
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>
+        <result column="creator" jdbcType="INTEGER" property="creator"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, op_id, code, clazz, flag, sort, product_id, `status`, `desc`, create_time, creator
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from t_o_operate_action_conf
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <insert id="insertSelective" keyColumn="id" keyProperty="id"
+            parameterType="com.fintech.rabbitmq.entity.OperateActionConf" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into t_o_operate_action_conf
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="opId != null">
+                op_id,
+            </if>
+            <if test="code != null and code != ''">
+                code,
+            </if>
+            <if test="clazz != null and clazz != ''">
+                clazz,
+            </if>
+            <if test="flag != null">
+                flag,
+            </if>
+            <if test="sort != null">
+                sort,
+            </if>
+            <if test="productId != null">
+                product_id,
+            </if>
+            <if test="status != null">
+                `status`,
+            </if>
+            <if test="desc != null and desc != ''">
+                `desc`,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="creator != null">
+                creator,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="opId != null">
+                #{opId,jdbcType=INTEGER},
+            </if>
+            <if test="code != null and code != ''">
+                #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="clazz != null and clazz != ''">
+                #{clazz,jdbcType=VARCHAR},
+            </if>
+            <if test="flag != null">
+                #{flag,jdbcType=INTEGER},
+            </if>
+            <if test="sort != null">
+                #{sort,jdbcType=INTEGER},
+            </if>
+            <if test="productId != null">
+                #{productId,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="desc != null and desc != ''">
+                #{desc,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=BIGINT},
+            </if>
+            <if test="creator != null">
+                #{creator,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+
+    <!--auto generated  on 2020-01-09-->
+    <select id="selectAllByCodeAndFlag" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_o_operate_action_conf
+        where code = #{code,jdbcType=VARCHAR}
+          and flag = #{flag,jdbcType=INTEGER}
+          and status = 1
+    </select>
+
+    <!--auto generated on 2020-03-11-->
+    <select id="selectDistinctClazzByCodeAndClazz" resultType="java.lang.String">
+        select distinct(clazz)
+        from t_o_operate_action_conf
+        where code = #{code,jdbcType=VARCHAR}
+          and clazz = #{clazz,jdbcType=VARCHAR}
+    </select>
+
+    <!--auto generated on 2020-03-17-->
+    <select id="selectAllByCodeAndProductId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_o_operate_action_conf
+        where status = 1
+          and code = #{code,jdbcType=VARCHAR}
+          and (product_id = #{productId,jdbcType=INTEGER} or
+               product_id = 1000)
+    </select>
+</mapper>

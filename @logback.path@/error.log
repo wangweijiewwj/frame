@@ -1,0 +1,65 @@
+2021-02-02 17:00:08 [ERROR] [main] o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'com.frame.resource.dao.TRCarInfoDao' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.frame.resource.dao.TRCarInfoDao' in your configuration.
+
+2021-02-02 17:04:46 [ERROR] [main] o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'com.frame.resource.dao.TRCarInfoDao' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.frame.resource.dao.TRCarInfoDao' in your configuration.
+
+2021-02-02 17:05:36 [ERROR] [main] o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'com.frame.resource.dao.TRCarInfoDao' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.frame.resource.dao.TRCarInfoDao' in your configuration.
+
+2021-02-02 17:12:30 [ERROR] [main] o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+2021-02-02 17:35:21 [ERROR] [http-nio-8090-exec-3] c.a.d.pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.2.118:3306/d5c_base_dev_data?useUnicode=true&characterEncoding=utf-8&useSSL=false, jdbcUrl : jdbc:mysql://192.168.2.118:3306/d5c_base_dev_data?useUnicode=true&characterEncoding=utf-8&useSSL=false, lastPacketReceivedIdleMillis : 237757

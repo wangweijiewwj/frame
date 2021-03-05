@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fintech.rabbitmq.mapper.ActionInsExceptionMapper">
+  <resultMap id="BaseResultMap" type="com.fintech.rabbitmq.entity.ActionInsException">
+    <!--@mbg.generated-->
+    <!--@Table t_o_action_ins_exception-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="ac_id" jdbcType="INTEGER" property="acId" />
+    <result column="ac_name" jdbcType="VARCHAR" property="acName" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="exception" jdbcType="LONGVARCHAR" property="exception" />
+    <result column="msg_id" jdbcType="INTEGER" property="msgId" />
+    <result column="ex_time" jdbcType="BIGINT" property="exTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, ac_id, ac_name, `type`, `exception`, msg_id, ex_time
+  </sql>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.fintech.rabbitmq.entity.ActionInsException" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_o_action_ins_exception
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="acId != null">
+        ac_id,
+      </if>
+      <if test="acName != null and acName != ''">
+        ac_name,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="exception != null and exception != ''">
+        `exception`,
+      </if>
+      <if test="msgId != null">
+        msg_id,
+      </if>
+      <if test="exTime != null">
+        ex_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="acId != null">
+        #{acId,jdbcType=INTEGER},
+      </if>
+      <if test="acName != null and acName != ''">
+        #{acName,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="exception != null and exception != ''">
+        #{exception,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="msgId != null">
+        #{msgId,jdbcType=INTEGER},
+      </if>
+      <if test="exTime != null">
+        #{exTime,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

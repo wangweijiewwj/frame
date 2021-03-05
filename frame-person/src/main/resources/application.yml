@@ -1,0 +1,43 @@
+logging:
+  config: classpath:logback/logback.xml
+server:
+  port: 8090
+  servlet:
+    context-path: /frame
+
+spring:
+  application:
+    name: frame-resource
+  rabbitmq:
+    addresses: amqp://admin:111111@192.168.2.140:5672
+    virtual-host: /
+    listener:
+      simple:
+        acknowledge-mode: manual
+        concurrency: 10
+        max-concurrency: 20
+    publisher-confirm-type: simple
+  resource:
+    datasource:
+      url: jdbc:mysql://192.168.2.118:3306/d5c_base_dev_data?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: root
+      password: 123456
+      # 使用druid数据源
+      type: com.alibaba.druid.pool.DruidDataSource
+      maxActive: 20
+      initialSize: 2
+      maxWait: 60000
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
+      - org.springframework.boot.autoconfigure.jdbc.XADataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration
+
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: true
+

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.frame.resource.dao.TRCarInfoDao">
+
+    <resultMap type="com.frame.resource.entity.TRCarInfo" id="TRCarInfoMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="resource" column="resource" jdbcType="INTEGER"/>
+        <result property="type" column="type" jdbcType="INTEGER"/>
+        <result property="classify" column="classify" jdbcType="INTEGER"/>
+        <result property="carNumber" column="car_number" jdbcType="VARCHAR"/>
+        <result property="guaNumber" column="gua_number" jdbcType="VARCHAR"/>
+        <result property="driverNum" column="driver_num" jdbcType="VARCHAR"/>
+        <result property="guaType" column="gua_type" jdbcType="INTEGER"/>
+        <result property="carTon" column="car_ton" jdbcType="INTEGER"/>
+        <result property="carType" column="car_type" jdbcType="INTEGER"/>
+        <result property="loading" column="loading" jdbcType="VARCHAR"/>
+        <result property="remake" column="remake" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="INTEGER"/>
+        <result property="createUserId" column="create_user_id" jdbcType="INTEGER"/>
+        <result property="updateTime" column="update_time" jdbcType="INTEGER"/>
+        <result property="updateUserId" column="update_user_id" jdbcType="INTEGER"/>
+        <result property="ext1" column="ext1" jdbcType="INTEGER"/>
+        <result property="ext2" column="ext2" jdbcType="VARCHAR"/>
+        <result property="deviceNo" column="device_no" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="TRCarInfoMap">
+        select
+          id, resource, type, classify, car_number, gua_number, driver_num, gua_type, car_ton, car_type, loading, remake, status, create_time, create_user_id, update_time, update_user_id, ext1, ext2, device_no
+        from t_r_car_info
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="TRCarInfoMap">
+        select
+          id, resource, type, classify, car_number, gua_number, driver_num, gua_type, car_ton, car_type, loading, remake, status, create_time, create_user_id, update_time, update_user_id, ext1, ext2, device_no
+        from t_r_car_info
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="TRCarInfoMap">
+        select
+          id, resource, type, classify, car_number, gua_number, driver_num, gua_type, car_ton, car_type, loading, remake, status, create_time, create_user_id, update_time, update_user_id, ext1, ext2, device_no
+        from t_r_car_info
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="resource != null">
+                and resource = #{resource}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="classify != null">
+                and classify = #{classify}
+            </if>
+            <if test="carNumber != null and carNumber != ''">
+                and car_number = #{carNumber}
+            </if>
+            <if test="guaNumber != null and guaNumber != ''">
+                and gua_number = #{guaNumber}
+            </if>
+            <if test="driverNum != null and driverNum != ''">
+                and driver_num = #{driverNum}
+            </if>
+            <if test="guaType != null">
+                and gua_type = #{guaType}
+            </if>
+            <if test="carTon != null">
+                and car_ton = #{carTon}
+            </if>
+            <if test="carType != null">
+                and car_type = #{carType}
+            </if>
+            <if test="loading != null and loading != ''">
+                and loading = #{loading}
+            </if>
+            <if test="remake != null and remake != ''">
+                and remake = #{remake}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="createUserId != null">
+                and create_user_id = #{createUserId}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="updateUserId != null">
+                and update_user_id = #{updateUserId}
+            </if>
+            <if test="ext1 != null">
+                and ext1 = #{ext1}
+            </if>
+            <if test="ext2 != null and ext2 != ''">
+                and ext2 = #{ext2}
+            </if>
+            <if test="deviceNo != null and deviceNo != ''">
+                and device_no = #{deviceNo}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into t_r_car_info(resource, type, classify, car_number, gua_number, driver_num, gua_type, car_ton, car_type, loading, remake, status, create_time, create_user_id, update_time, update_user_id, ext1, ext2, device_no)
+        values (#{resource}, #{type}, #{classify}, #{carNumber}, #{guaNumber}, #{driverNum}, #{guaType}, #{carTon}, #{carType}, #{loading}, #{remake}, #{status}, #{createTime}, #{createUserId}, #{updateTime}, #{updateUserId}, #{ext1}, #{ext2}, #{deviceNo})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update t_r_car_info
+        <set>
+            <if test="resource != null">
+                resource = #{resource},
+            </if>
+            <if test="type != null">
+                type = #{type},
+            </if>
+            <if test="classify != null">
+                classify = #{classify},
+            </if>
+            <if test="carNumber != null and carNumber != ''">
+                car_number = #{carNumber},
+            </if>
+            <if test="guaNumber != null and guaNumber != ''">
+                gua_number = #{guaNumber},
+            </if>
+            <if test="driverNum != null and driverNum != ''">
+                driver_num = #{driverNum},
+            </if>
+            <if test="guaType != null">
+                gua_type = #{guaType},
+            </if>
+            <if test="carTon != null">
+                car_ton = #{carTon},
+            </if>
+            <if test="carType != null">
+                car_type = #{carType},
+            </if>
+            <if test="loading != null and loading != ''">
+                loading = #{loading},
+            </if>
+            <if test="remake != null and remake != ''">
+                remake = #{remake},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="createUserId != null">
+                create_user_id = #{createUserId},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="updateUserId != null">
+                update_user_id = #{updateUserId},
+            </if>
+            <if test="ext1 != null">
+                ext1 = #{ext1},
+            </if>
+            <if test="ext2 != null and ext2 != ''">
+                ext2 = #{ext2},
+            </if>
+            <if test="deviceNo != null and deviceNo != ''">
+                device_no = #{deviceNo},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from t_r_car_info where id = #{id}
+    </delete>
+
+</mapper>
